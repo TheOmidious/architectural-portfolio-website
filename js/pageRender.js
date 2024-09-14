@@ -1,3 +1,5 @@
+import { myFunction } from "./stickyHeader";
+
 const container = document.getElementById('container');
 
 // Create an img element
@@ -8,5 +10,10 @@ img.src = '/assets/images/Test.jpeg';
 
 // Append the image to the container
 container.appendChild(img);
+
+ 
+// When the user scrolls the page, execute myFunction 
+window.onscroll = function() {myFunction()}; 
+console.log('hello')
 
 
