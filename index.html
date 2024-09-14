@@ -7,30 +7,58 @@
     <link rel="stylesheet" href="assets/styles/styles.css">
 </head>
 <body>
-    <!-- header of the website which is consistent on each page  -->
+    <!-- Full-width hero section -->
+    <!-- <section id="hero">
+        <div class="hero-text">
+            <h1>Omidworks</h1>
+            <p>Designing the future, one space at a time</p>
+        </div>
+    </section> -->
+
+    <!-- Navigation bar -->
     <header id="sticky-header">
         <nav>
-            <a href="#/about">About</a>
-            <a href="#/projects">Selected Projects</a>
-            <a href="#/">Home</a>
-            <!-- <h1>Omid Pournejati</h1> -->
-            <a href="#/photos">Photos</a>
-            <a href="#/contact">Contact</a>
+            <a href="#about-section">About</a>
+            <a href="#projects-section">Projects</a>
+            <a href="#photos-section">Photos</a>
+            <a href="#contact-section">Contact</a>
         </nav>
     </header>
-        <!-- content of the page will be here  -->
+
+    <!-- Main content sections -->
     <div id="container">
+        <section id="about-section" class="content-section">
+            <h2>About</h2>
+            <p>I’m an architect with a Master’s degree in Architecture...</p>
+        </section>
+
+        <section id="projects-section" class="content-section">
+            <h2>Selected Projects</h2>
+            <div class="grid-container">
+                <!-- Project grid items go here -->
+            </div>
+        </section>
+
+        <section id="photos-section" class="content-section">
+            <h2>Photos</h2>
+            <!-- Photo content goes here -->
+        </section>
+
+        <section id="contact-section" class="content-section">
+            <h2>Contact</h2>
+            <!-- Contact details go here -->
+        </section>
     </div>
-        <!-- footer of the website which is consistent on each page  -->
+
+    <!-- Footer -->
     <footer>
-        <li>
-            <a href="https://www.instagram.com/omidious/">Instagram</a>
-        </li>
-        <li>
-            <a href="https://www.linkedin.com/in/omidpournejati">Linkedin</a>
-        </li>
+        <ul>
+            <li><a href="https://www.instagram.com/omidious/">Instagram</a></li>
+            <li><a href="https://www.linkedin.com/in/omidpournejati">LinkedIn</a></li>
+        </ul>
         <button>omidpournejati@gmail.com</button>
-    </footer>  
+    </footer>
+
     <script type="module" src="js/pageRender.js"></script>
 </body>
 </html>
