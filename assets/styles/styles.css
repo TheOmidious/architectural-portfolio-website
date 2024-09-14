@@ -1,4 +1,16 @@
+
+/* Ostrich Sans Inline */
+
+@font-face {
+	font-family: 'Ostrich Sans Inline';
+	src: url('/assets/fonts/ostrich-sans-inline-regular.eot');
+	src: local('☺'), url('/assets/fonts/ostrich-sans-inline-regular.woff') format('woff'), url('/assets/fonts/ostrich-sans-inline-regular.ttf') format('truetype'), url('/assets/fonts/ostrich-sans-inline-regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 /* Global styling */
+
 html {
     scroll-behavior: smooth;
     display: flex;
@@ -7,7 +19,6 @@ html {
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
@@ -26,6 +37,7 @@ body {
     text-align: center;
     color: white;
     position: relative;
+    font-family: 'Ostrich Sans Inline', 'Poppins', sans-serif; /* Fixed the font-family */
 }
 
 .hero-text {
