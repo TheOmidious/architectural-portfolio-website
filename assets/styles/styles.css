@@ -1,6 +1,9 @@
 /* Global styling */
 html {
     scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 body {
@@ -118,4 +121,11 @@ footer button {
 
 footer button:hover {
     text-decoration: underline;
+}
+
+/* Combined #about-section styles */
+#about-section {
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: row;
 }
