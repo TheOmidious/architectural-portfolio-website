@@ -1,18 +1,17 @@
-
 /* Ostrich Sans Inline */
-
 @font-face {
-	font-family: 'Ostrich Sans Inline';
-	src: url('/assets/fonts/ostrich-sans-inline-regular.eot');
-	src: local('☺'), url('/assets/fonts/ostrich-sans-inline-regular.woff') format('woff'), url('/assets/fonts/ostrich-sans-inline-regular.ttf') format('truetype'), url('/assets/fonts/ostrich-sans-inline-regular.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'Ostrich Sans Inline';
+    src: url('/assets/fonts/ostrich-sans-inline-regular.eot');
+    src: local('☺'), url('/assets/fonts/ostrich-sans-inline-regular.woff') format('woff'),
+         url('/assets/fonts/ostrich-sans-inline-regular.ttf') format('truetype'),
+         url('/assets/fonts/ostrich-sans-inline-regular.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 /* Global styling */
-
 html {
-    font-family: 'Ostrich Sans Inline', 'Poppins', sans-serif; /* Fixed the font-family */
+    font-family: 'Ostrich Sans Inline', 'Poppins', sans-serif;
     scroll-behavior: smooth;
     display: flex;
     flex-direction: column;
@@ -91,54 +90,77 @@ nav a:hover {
 
 #about-section {
     background-color: #f4f4f4;
+    display: flex;
+    flex-direction: row;
 }
 
-#projects-section .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+#photos-section {
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    display: block;
+}
+
+/* Projects Section */
+#projects-section {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
     padding: 20px;
 }
 
-/* Footer Styling */
-footer {
-    background-color: #333;
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    display: none;
+    /* Additional styling as needed */
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
     color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-footer ul {
-    list-style: none;
-    padding: 0;
-}
-
-footer ul li {
-    display: inline;
-    margin: 0 10px;
-}
-
-footer ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-footer button {
-    background: none;
+    font-weight: bold;
+    font-size: 18px;
+    transition: background-color 0.6s ease;
     border: none;
-    color: white;
     cursor: pointer;
+}
+
+
+/* Show the first slide initially */
+.carousel-slide.active {
+    display: block;
+}
+
+/* Image styling for individual projects */
+.item {
+    max-width: 100px;
+    height: auto;
+}
+
+/* Title and description for each project */
+.project-title {
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 10px 0 5px;
+}
+
+.project-description {
+    text-align: center;
     font-size: 1rem;
-    margin-top: 10px;
-}
-
-footer button:hover {
-    text-decoration: underline;
-}
-
-/* Combined #about-section styles */
-#about-section {
-    background-color: #f4f4f4;
-    display: flex;
-    flex-direction: row;
+    color: #555;
 }
