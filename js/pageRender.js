@@ -1,5 +1,3 @@
-const container = document.getElementById('container');
-
 // Array of image file names
 const images = [
     'image1.jpg',
@@ -22,46 +20,57 @@ const images = [
     'image18.jpg',
 ];
 
-
-// Function to create and add images
+// Function to create and add images to the carousel
 function addImages() {
-    // Get the container element where images will be appended
     const container = document.getElementById('image-container');
-
-    // Check if container exists
+    
     if (container) {
+        const imgContainer = document.createElement('div');
+        imgContainer.className = 'carousel-slides'; // Container for all images
+
         images.forEach(image => {
-            // Create an img element
             const img = document.createElement('img');
             img.src = `/assets/images/${image}`;
-            img.alt = 'Dynamic Image'; // Optional: Add an alt text
+            img.alt = 'Dynamic Image';
+            img.className = 'carousel-image'; // Optional: Add a class for styling
 
-            // Append the img element to the container
-            container.appendChild(img);
+            imgContainer.appendChild(img);
         });
+        
+        container.appendChild(imgContainer);
+        // Initialize the carousel after images are added
+        initializeCarousel();
     } else {
         console.error('Image container element not found.');
     }
 }
 
-// Call the function to add images when the page loads
-document.addEventListener('DOMContentLoaded', addImages);
- 
-// When the user scrolls the page, execute myFunction 
-let currentSlide = 0;
-const slides = document.querySelectorAll('.carousel-slide');
+// Function to initialize carousel and setup event listeners
+function initializeCarousel() {
+    slides = document.querySelectorAll('.carousel-slides img'); // Update slides after images are added
+    showSlide(currentSlide);
 
+    // Setup event listeners for carousel controls
+    document.querySelector('.prev').addEventListener('click', () => moveSlide(-1));
+    document.querySelector('.next').addEventListener('click', () => moveSlide(1));
+}
+
+// Function to show a specific slide
 function showSlide(index) {
     slides.forEach((slide, i) => {
         slide.style.display = i === index ? 'block' : 'none';
     });
 }
 
+// Function to move to the next or previous slide
 function moveSlide(step) {
     currentSlide = (currentSlide + step + slides.length) % slides.length;
     showSlide(currentSlide);
 }
 
-// Initialize the carousel
-showSlide(currentSlide);
+// Initialize variables
+let currentSlide = 0;
+let slides;
 
+// Call the function to add images when the page loads
+document.addEventListener('DOMContentLoaded', addImages);
