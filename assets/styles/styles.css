@@ -107,6 +107,7 @@ nav a:hover {
 
 /* Projects Section */
 #project-section {
+    background: #555;
     white-space: nowrap;
     display: flex;
 }
@@ -132,4 +133,19 @@ nav a:hover {
     text-align: center;
     font-size: 1rem;
     color: #555;
+}
+
+#caraousel-nav {
+    width: 100%;
+    padding: 20px 0;
+    position: absolute;
+    left: 0;
+    text-align: center;
+}
+#caraousel-button {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background: rgba(226, 124, 124, 0.829);
+    border-radius: 50%;
 }
