@@ -12,6 +12,8 @@
 
 /* Global styling */
 html {
+    margin: 0px;
+    padding: 0px;
     font-family: 'Ostrich Sans Inline', 'Poppins', sans-serif;
     scroll-behavior: smooth;
     display: flex;
@@ -104,59 +106,19 @@ nav a:hover {
 }
 
 /* Projects Section */
-#projects-section {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-}
-
-.carousel-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-
-.carousel-slides {
-    display: flex; /* Changed to flex to arrange slides in a row */
-    transition: transform 0.5s ease-in-out; /* Smooth transition effect */
-}
-
-.carousel-slide {
-    min-width: 100%; /* Ensure each slide takes full container width */
-    transition: opacity 0.5s ease-in-out;
-}
-
-.carousel-slide img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: background-color 0.6s ease;
-    border: none;
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.5); /* Added background for better visibility */
-    border-radius: 50%;
-}
-
-.prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.7);
+#project-section {
+    white-space: nowrap;
 }
 
 /* Image styling for individual projects */
 .item {
     max-width: 100px;
     height: auto;
+}
+
+.carousel-slides {
+    height: 1%;
+    /* width: calc(100%/3); */
 }
 
 .project-title {
