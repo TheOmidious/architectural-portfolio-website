@@ -27,45 +27,77 @@ function addImages() {
     if (container) {
         const imgContainer = document.createElement('div');
         imgContainer.className = 'carousel-slides'; // Container for all images
+        imgContainer.style.display = 'flex'; // Ensure horizontal layout for dragging
+        imgContainer.style.overflow = 'hidden'; // Hide overflow
 
         images.forEach(image => {
             const img = document.createElement('img');
             img.src = `/assets/images/${image}`;
             img.alt = 'Dynamic Image';
             img.className = 'carousel-image'; // Optional: Add a class for styling
+            img.style.width = '100%'; // Ensure the image fills the container
 
             imgContainer.appendChild(img);
         });
         
         container.appendChild(imgContainer);
         // Initialize the carousel after images are added
-        initializeCarousel();
+        initializeCarousel(imgContainer);
     } else {
         console.error('Image container element not found.');
     }
 }
 
-// Function to initialize carousel and setup event listeners
-function initializeCarousel() {
-    slides = document.querySelectorAll('.carousel-slides img'); // Update slides after images are added
-    showSlide(currentSlide);
+// Function to initialize carousel with dragging functionality
+function initializeCarousel(container) {
+    let isDragging = false;
+    let startX;
+    let scrollLeft;
 
-    // Setup event listeners for carousel controls
-    document.querySelector('.prev').addEventListener('click', () => moveSlide(-1));
-    document.querySelector('.next').addEventListener('click', () => moveSlide(1));
-}
-
-// Function to show a specific slide
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.style.display = i === index ? 'block' : 'none';
+    // Mouse events for desktop
+    container.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
+        container.classList.add('active'); // Add active class for styling if needed
     });
-}
 
-// Function to move to the next or previous slide
-function moveSlide(step) {
-    currentSlide = (currentSlide + step + slides.length) % slides.length;
-    showSlide(currentSlide);
+    container.addEventListener('mouseleave', () => {
+        isDragging = false;
+        container.classList.remove('active');
+    });
+
+    container.addEventListener('mouseup', () => {
+        isDragging = false;
+        container.classList.remove('active');
+    });
+
+    container.addEventListener('mousemove', (e) => {
+        if (!isDragging) return; // Only run if dragging
+        e.preventDefault();
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX) * 2; // Multiply for faster scroll
+        container.scrollLeft = scrollLeft - walk;
+    });
+
+    // Touch events for mobile
+    container.addEventListener('touchstart', (e) => {
+        isDragging = true;
+        startX = e.touches[0].pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
+    });
+
+    container.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.touches[0].pageX - container.offsetLeft;
+        const walk = (x - startX) * 2;
+        container.scrollLeft = scrollLeft - walk;
+    });
+
+    container.addEventListener('touchend', () => {
+        isDragging = false;
+    });
 }
 
 // Initialize variables
@@ -73,4 +105,6 @@ let currentSlide = 0;
 let slides;
 
 // Call the function to add images when the page loads
-document.addEventListener('DOMContentLoaded', addImages);
+document.addEventListener('DOMContentLoaded', () => {
+    addImages();
+});

@@ -108,6 +108,7 @@ nav a:hover {
 /* Projects Section */
 #project-section {
     white-space: nowrap;
+    display: flex;
 }
 
 /* Image styling for individual projects */
@@ -116,9 +117,9 @@ nav a:hover {
     height: auto;
 }
 
-.carousel-slides {
-    height: 1%;
-    /* width: calc(100%/3); */
+.carousel-slides img {
+    max-height: 800px;
+    width: calc(100%/3);
 }
 
 .project-title {
