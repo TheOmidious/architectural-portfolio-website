@@ -35,7 +35,6 @@ function runInterval(buttonKey) {
 
         const myInterval = setInterval(function() {
             if (localCounter >= 0) {
-                icon.innerHTML = "schedule";
                 buttonText.innerText = "Please Wait: " + localCounter;
                 localCounter--;
             } else {
@@ -43,8 +42,7 @@ function runInterval(buttonKey) {
                 downloadState = false;
                 buttonText.innerText = "Downloading";
                 setTimeout(function() {
-                    icon.innerText = "replay";
-                    buttonText.innerText = "Try Again";
+                    buttonText.innerText = "Download Again";
                 }, 2000);
                 console.log(`Triggering download for: ${downloadLink}`);
                 downloadButton.click(); // Trigger the download
