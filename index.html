@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Omidworks</title>
     <link rel="stylesheet" href="assets/styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation bar -->
@@ -12,7 +13,7 @@
         <nav>
             <a href="#about-section">About</a>
             <a href="#projects-section">Projects</a>
-            <a href="#">Home</a>
+            <a href="#hero">Home</a>
             <a href="#photos-section">Photos</a>
             <a href="#contact-section">Contact</a>
         </nav>
@@ -63,21 +64,25 @@
 
         <section id="contact-section" class="content-section">
             <h2>Contact</h2>
-            <a href="/assets/ducuments/Design Portfolio_Omid Pournejati 2024.pdf">
-                <button id="portfolio" type="button">Download My Portfolio</button>
-            </a>
-            <a href="/assets/ducuments/CV-Omid Pournejati.pdf">
-                <button id="resume">Download My Resume</button>
-            </a>
+            <div id="myOuterDiv">
+                <div id="myDownloadDiv">
+                    <div id="myIcon" class="icon"></div>
+                    <div id="myText">Download My Portfolio</div>
+                </div>
+                <div id="myResumeDiv">
+                    <div id="resumeIcon" class="icon"></div>
+                    <div id="resumeText">Download My CV</div>
+                </div>
+            </div>
             <h1 id="email">omidpournejati@gmail.com</h1>
             <ul>
                 <li><a href="https://www.instagram.com/omidious/">Instagram</a></li>
                 <li><a href="https://www.linkedin.com/in/omidpournejati">LinkedIn</a></li>
             </ul>
-        </section>
+        </section>  
     </div>
-
     <script src="js/pageRender.js"></script>
+    <script src="js/downloadButton.js"></script>
     <script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>

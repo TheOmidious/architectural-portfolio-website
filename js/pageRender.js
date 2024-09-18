@@ -1,3 +1,5 @@
+// import { runInterval } from "./downloadButton";
+
 // Array of image file names
 const images = [
     'image1.jpg',
@@ -169,3 +171,7 @@ function updateActiveButton(buttons, activeIndex) {
 document.addEventListener('DOMContentLoaded', () => {
     addImages();
 });
+
+runInterval();
+
+img.loading = 'lazy';
