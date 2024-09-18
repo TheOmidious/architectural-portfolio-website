@@ -27,20 +27,21 @@ function addImages() {
     if (container) {
         const imgContainer = document.createElement('div');
         imgContainer.className = 'carousel-slides'; // Container for all images
-        imgContainer.style.display = 'flex'; // Ensure horizontal layout for dragging
-        imgContainer.style.overflow = 'hidden'; // Hide overflow
+        imgContainer.style.display = 'flex'; // Ensure horizontal layout
+        imgContainer.style.overflowX = 'auto'; // Enable horizontal scrolling
+        imgContainer.style.scrollBehavior = 'smooth'; // Smooth scrolling effect
 
+        // Add original images
         images.forEach(image => {
             const img = document.createElement('img');
             img.src = `/assets/images/${image}`;
             img.alt = 'Dynamic Image';
             img.className = 'carousel-image'; // Optional: Add a class for styling
-            img.style.width = '100%'; // Ensure the image fills the container
-
             imgContainer.appendChild(img);
         });
-        
+
         container.appendChild(imgContainer);
+        
         // Initialize the carousel after images are added
         initializeCarousel(imgContainer);
     } else {
@@ -48,90 +49,113 @@ function addImages() {
     }
 }
 
-// Function to initialize carousel with dragging functionality
-function initializeCarousel(container) {
-    let isDragging = false;
-    let startX;
-    let scrollLeft;
 
-    // Mouse events for desktop
+
+// Function to initialize carousel with scroll, mousewheel, and drag functionality
+function initializeCarousel(container) {
+    let scrollTimeout;
+
+    // Mouse dragging functionality variables
+    let isDragging = false;
+    let startX, scrollLeft;
+
+    // Event to handle mousewheel scrolling
+    container.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        container.scrollLeft += e.deltaY > 0 ? container.clientWidth : -container.clientWidth;
+    });
+
+    container.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            updateCarouselOnScroll(container);
+        }, 100); // Adjust timing if necessary for smoother navigation
+    });
+
+    // Mouse dragging functionality
     container.addEventListener('mousedown', (e) => {
         isDragging = true;
+        container.classList.add('dragging');
         startX = e.pageX - container.offsetLeft;
         scrollLeft = container.scrollLeft;
-        container.classList.add('active'); // Add active class for styling if needed
     });
 
     container.addEventListener('mouseleave', () => {
         isDragging = false;
-        container.classList.remove('active');
+        container.classList.remove('dragging');
     });
 
     container.addEventListener('mouseup', () => {
         isDragging = false;
-        container.classList.remove('active');
+        container.classList.remove('dragging');
     });
 
     container.addEventListener('mousemove', (e) => {
-        if (!isDragging) return; // Only run if dragging
-        e.preventDefault();
-        const x = e.pageX - container.offsetLeft;
-        const walk = (x - startX) * 2; // Multiply for faster scroll
-        container.scrollLeft = scrollLeft - walk;
-    });
-
-    // Touch events for mobile
-    container.addEventListener('touchstart', (e) => {
-        isDragging = true;
-        startX = e.touches[0].pageX - container.offsetLeft;
-        scrollLeft = container.scrollLeft;
-    });
-
-    container.addEventListener('touchmove', (e) => {
         if (!isDragging) return;
         e.preventDefault();
-        const x = e.touches[0].pageX - container.offsetLeft;
-        const walk = (x - startX) * 2;
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX) * 3; // Adjust scroll speed
         container.scrollLeft = scrollLeft - walk;
-    });
-
-    container.addEventListener('touchend', () => {
-        isDragging = false;
     });
 
     // Initialize carousel navigation buttons
-    initializeCarouselNav();
+    initializeCarouselNav(container);
 }
 
 // Function to initialize carousel navigation buttons
-function initializeCarouselNav() {
-    document.querySelectorAll("#projects-section").forEach(carousel => {
-        const items = carousel.querySelectorAll('.carousel-image');
-        const buttonsHtml = Array.from(items, () => {
-            return `<span class="carousel-button"></span>`;
-        });
-
-        carousel.insertAdjacentHTML("beforeend", `
-            <div class="carousel-nav">
-                ${buttonsHtml.join("")}
-            </div>
-        `);
-
-        const buttons = carousel.querySelectorAll('.carousel-button');
-        buttons.forEach((button, index) => {
-            button.addEventListener('click', () => {
-                items.forEach(item => item.classList.remove("carousel-image-selected"));
-                buttons.forEach(button => button.classList.remove("carousel-button-selected"))
-                const imgContainer = carousel.querySelector('.carousel-slides');
-                const imgWidth = imgContainer.querySelector('.carousel-image').clientWidth;
-                imgContainer.scrollLeft = imgWidth * index;
-                updateActiveButton(buttons, index);
-            });
-        });
-
-        // Set the first button as active by default
-        updateActiveButton(buttons, 0);
+function initializeCarouselNav(container) {
+    const items = container.querySelectorAll('.carousel-image');
+    const buttonsHtml = Array.from(items, () => {
+        return `<span class="carousel-button"></span>`;
     });
+
+    const carousel = document.querySelector("#projects-section");
+    carousel.insertAdjacentHTML("beforeend", `
+        <div class="carousel-nav">
+            <button class="carousel-arrow left-arrow">&lt;</button>
+            ${buttonsHtml.join("")}
+            <button class="carousel-arrow right-arrow">&gt;</button>
+        </div>
+    `);
+
+    const buttons = carousel.querySelectorAll('.carousel-button');
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+    
+    buttons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            items.forEach(item => item.classList.remove("carousel-image-selected"));
+            buttons.forEach(button => button.classList.remove("carousel-button-selected"));
+
+            const imgWidth = container.querySelector('.carousel-image').clientWidth;
+            container.scrollLeft = imgWidth * index;
+            updateActiveButton(buttons, index);
+        });
+    });
+
+    leftArrow.addEventListener('click', () => {
+        const imgWidth = container.querySelector('.carousel-image').clientWidth;
+        container.scrollLeft -= imgWidth;
+    });
+
+    rightArrow.addEventListener('click', () => {
+        const imgWidth = container.querySelector('.carousel-image').clientWidth;
+        container.scrollLeft += imgWidth;
+    });
+
+    // Set the first button as active by default
+    updateActiveButton(buttons, 0);
+}
+
+
+// Function to update active button styling based on the current scroll position
+function updateCarouselOnScroll(container) {
+    const items = container.querySelectorAll('.carousel-image');
+    const buttons = document.querySelectorAll('.carousel-button');
+    const imgWidth = container.querySelector('.carousel-image').clientWidth;
+    const index = Math.round(container.scrollLeft / imgWidth);
+
+    updateActiveButton(buttons, index);
 }
 
 // Function to update active button styling

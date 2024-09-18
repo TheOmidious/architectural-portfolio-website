@@ -10,13 +10,18 @@
     font-style: normal;
 }
 
-#hero, #about-section, #photos-section, #project-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; /* Ensure content is stacked and centered */
-    width: 100%; /* Ensure full width for sections */
-}
+/* @media (max-width: 768px) {
+    .carousel-slides img {
+        width: 100%;
+    }
+    .carousel-nav {
+        width: 100%;
+    }
+    nav a {
+        font-size: 1.2rem;
+    }
+} */
+
 
 /* Global styling */
 html {
@@ -38,15 +43,14 @@ body {
     flex-direction: column; /* Vertically stack elements */
     justify-content: center; /* Center elements vertically */
     align-items: center; /* Center elements horizontally */
-    height: 100vh; /* Ensure the body takes up full viewport height */
 }
 
 /* Hero Section */
 #hero {
-    background-image: url('/assets/images/path-to-hero-image.jpg'); /* Replace with actual path */
+    background-image: url('/assets/images/background.jpg'); /* Replace with actual path */
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,8 +142,10 @@ nav a:hover {
 }
 
 .carousel-slides img {
-    max-height: 750px;
+    max-height: 900px;
     width: 33%; /* Shows 3 images at a time */
+    transition: transform 0.5s ease-in-out;
+
 }
 
 .project-title {
@@ -176,4 +182,39 @@ nav a:hover {
 .carousel-button.active {
     background: rgba(92, 0, 0, 0.829);
 
+}
+
+/* Carousel styling */
+.carousel-slides {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.carousel-image {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.carousel-button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.carousel-button.active {
+    background-color: #333;
+}
+
+.carousel-slides::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for cleaner look */
 }
