@@ -98,11 +98,48 @@ function initializeCarousel(container) {
     container.addEventListener('touchend', () => {
         isDragging = false;
     });
+
+    // Initialize carousel navigation buttons
+    initializeCarouselNav();
 }
 
-// Initialize variables
-let currentSlide = 0;
-let slides;
+// Function to initialize carousel navigation buttons
+function initializeCarouselNav() {
+    document.querySelectorAll("#projects-section").forEach(carousel => {
+        const items = carousel.querySelectorAll('.carousel-image');
+        const buttonsHtml = Array.from(items, () => {
+            return `<span class="carousel-button"></span>`;
+        });
+
+        carousel.insertAdjacentHTML("beforeend", `
+            <div class="carousel-nav">
+                ${buttonsHtml.join("")}
+            </div>
+        `);
+
+        const buttons = carousel.querySelectorAll('.carousel-button');
+        buttons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                items.forEach(item => item.classList.remove("carousel-image-selected"));
+                buttons.forEach(button => button.classList.remove("carousel-button-selected"))
+                const imgContainer = carousel.querySelector('.carousel-slides');
+                const imgWidth = imgContainer.querySelector('.carousel-image').clientWidth;
+                imgContainer.scrollLeft = imgWidth * index;
+                updateActiveButton(buttons, index);
+            });
+        });
+
+        // Set the first button as active by default
+        updateActiveButton(buttons, 0);
+    });
+}
+
+// Function to update active button styling
+function updateActiveButton(buttons, activeIndex) {
+    buttons.forEach((button, index) => {
+        button.classList.toggle('active', index === activeIndex);
+    });
+}
 
 // Call the function to add images when the page loads
 document.addEventListener('DOMContentLoaded', () => {
