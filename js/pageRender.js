@@ -39,6 +39,7 @@ function addImages() {
             img.src = `/assets/images/${image}`;
             img.alt = 'Dynamic Image';
             img.className = 'carousel-image'; // Optional: Add a class for styling
+            img.loading = 'lazy'; // Lazy loading
             imgContainer.appendChild(img);
         });
 
@@ -50,8 +51,6 @@ function addImages() {
         console.error('Image container element not found.');
     }
 }
-
-
 
 // Function to initialize carousel with scroll, mousewheel, and drag functionality
 function initializeCarousel(container) {
@@ -167,11 +166,22 @@ function updateActiveButton(buttons, activeIndex) {
     });
 }
 
-// Call the function to add images when the page loads
 document.addEventListener('DOMContentLoaded', () => {
+    // Add images to carousel
     addImages();
+
+    // Set up email copy functionality
+    const emailElement = document.getElementById('emailAddress');
+    if (emailElement) {
+        emailElement.addEventListener('click', () => {
+            const email = emailElement.textContent;
+            navigator.clipboard.writeText(email).then(() => {
+                alert('Email address copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy email: ', err);
+            });
+        });
+    } else {
+        console.error('Email address element not found.');
+    }
 });
-
-runInterval();
-
-img.loading = 'lazy';

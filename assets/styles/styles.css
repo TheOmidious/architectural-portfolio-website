@@ -265,3 +265,8 @@ nav a:hover {
 #myResumeDiv {
     color: white; 
 }
+
+#emailAddress {
+    cursor: pointer;
+}
+
