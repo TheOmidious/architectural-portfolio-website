@@ -1,3 +1,5 @@
+// downloadButton.js
+
 // Variables for download buttons
 let counter = 3;
 let downloadState = false;

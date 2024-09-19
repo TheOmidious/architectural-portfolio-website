@@ -1,4 +1,4 @@
-// import { runInterval } from "./downloadButton";
+//pageRender.js
 
 // Array of image file names
 const images = [
