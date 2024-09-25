@@ -7,13 +7,13 @@ const downloadButtons = {
     portfolio: {
         buttonDiv: document.getElementById('myDownloadDiv'),
         buttonText: document.getElementById('myText'),
-        icon: document.getElementById('myIcon'),
+        // icon: document.getElementById('myIcon'),
         downloadLink: '/assets/documents/Design Portfolio_Omid Pournejati 2024.pdf'
     },
     resume: {
         buttonDiv: document.getElementById('myResumeDiv'),
         buttonText: document.getElementById('resumeText'),
-        icon: document.getElementById('resumeIcon'),
+        // icon: document.getElementById('resumeIcon'),
         downloadLink: '/assets/documents/CV-Omid Pournejati.pdf'
     }
 };
@@ -30,7 +30,7 @@ function createDownloadButton(link) {
 function runInterval(buttonKey) {
     if (!downloadState) {
         downloadState = true;
-        const { buttonDiv, buttonText, icon, downloadLink } = downloadButtons[buttonKey];
+        const { buttonDiv, buttonText, downloadLink } = downloadButtons[buttonKey];
         const downloadButton = createDownloadButton(downloadLink);
 
         let localCounter = counter; // Use a local counter for each button
