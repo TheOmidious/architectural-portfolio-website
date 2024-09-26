@@ -1,13 +1,10 @@
 
 /* Global Styling */
 html {
+    width: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Ostrich Sans Inline', 'Poppins', sans-serif;
-    scroll-behavior: smooth;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     scroll-behavior: smooth;
 }
 
@@ -118,17 +115,22 @@ nav a:hover::after {
 
 /*About Section */
 #about-section {
-    background-color: rgba(189, 224, 254, 0.637);
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
 
 }
+
+#about-section p{
+    max-width: 500px;
+
+}
+
 #about-section img {
-    max-height: 300px;
+    max-width: 300px;
 
 }
-
-
 
 #photos-section img {
     max-width: 300px;
@@ -145,6 +147,10 @@ nav a:hover::after {
     padding: 80px 0; /* Adjusted for better spacing */
 }
 
+#header {
+    max-width: 600px;
+}
+
 /* Carousel and Project Styling */
 .item {
     max-width: 100px;
@@ -155,6 +161,9 @@ nav a:hover::after {
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
+    background-color: #000;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .carousel-slides img {
@@ -446,4 +455,17 @@ form textarea.form-field {
 
 element.style {
     display: none;
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 768px) {
+    /* Adjusting the sticky header for smaller screens */
+    html {
+        width: 100%;
+        width: fit-content;
+    }
+    header {
+        padding: 10px 0;
+        background-color: #A3A8AC;
+    }
 }
