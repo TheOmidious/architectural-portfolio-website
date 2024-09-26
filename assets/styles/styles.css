@@ -128,12 +128,10 @@ nav a:hover::after {
 
 }
 
-#photos-section {
-    background-color: #f4f4f4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 80px; /* More top padding for spacing */
+
+
+#photos-section img {
+    max-width: 300px;
 }
 
 #project-section {
@@ -228,12 +226,13 @@ button:hover {
     font-weight: 700;
     color: white;
     line-height: 26px;
-    box-shadow: -10px -8px 0px rgb(167 243 208);
 }
 
 #myDownloadDiv:hover, #myResumeDiv:hover {
     background-color: #2b6cb0;
     transform: scale(1.05); /* Slight scaling effect on hover */
+    box-shadow: -10px -8px 0px rgb(167 243 208);
+
 }
 
 /* Email Styling */
@@ -244,12 +243,6 @@ button:hover {
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-#contact-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 60px;
-}
 /*footer*/
 footer {
     background: linear-gradient(135deg, #676C70, #33373B);
@@ -276,10 +269,9 @@ footer {
     transform: scale(1.1);
 }
 
-
-
 .col-2 {
-    width: 600px;
+    padding-right: 20px;
+    width: 500px;
 }
 
 .form-container {
@@ -288,13 +280,6 @@ footer {
     background-color: rgba(255, 255, 255, 0.288);
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.199);
-}
-
-#contact-title {
-    font-weight: 600;
-    font-size: 40px;
-	color: #ffae00;
-    margin-bottom: 0;
 }
 
 .form-row {
@@ -343,12 +328,13 @@ form textarea.form-field {
     background-color: #222;
 }
 
-hr {
-    border: none;
-    width: 120px;
-    height: 5px;
-    background-color: #000;
-    border-radius: 10px;
+#contact-section {
+    display: flex;
+    width: auto;
+    justify-content: space-evenly;
+    gap: 20px;
+    align-items: center;
+    padding-bottom: 60px;
 }
 
 #contact-img img {
@@ -356,9 +342,9 @@ hr {
 }
 
 #contact-img {
-    position: relative;
-    left: 400px;
-    bottom: 280px;
+    position: absolute;
+    left: 1000px;
+    top: 1980px;
     opacity: 1;
     z-index: 1;
 }
@@ -366,6 +352,7 @@ hr {
 .form-btn {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 
@@ -449,3 +436,14 @@ hr {
     filter: brightness(1.1);
 }
 
+.eapps-instagram-feed-posts-slider-inner .eapps-instagram-feed-posts-inner .eui-slider-inner .es-layout-carousel-content{
+    width: 1500px;
+}
+
+.eapps-instagram-feed-header-container {
+    display: none;
+}
+
+element.style {
+    display: none;
+}
