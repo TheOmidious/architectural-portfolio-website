@@ -92,9 +92,10 @@ nav a:hover::after {
 }
 
 .hero-text {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(201, 109, 109, 0.685);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 50px;
+    color: #000;
 }
 
 .hero-text h1 {
@@ -110,7 +111,7 @@ nav a:hover::after {
 /* Content Sections */
 .content-section {
     text-align: center;
-    padding: 60px 20px 20px; /* Increased top padding to avoid header overlap */
+    padding: 65px 0px 20px; /* Increased top padding to avoid header overlap */
 }
 
 /*About Section */
@@ -145,7 +146,7 @@ nav a:hover::after {
     background: #555;
     white-space: nowrap;
     width: 100%;
-    padding: 80px 0; /* Adjusted for better spacing */
+    padding-right: 0;
 }
 
 #header {
