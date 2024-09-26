@@ -79,10 +79,10 @@ nav a:hover::after {
 
 /* Hero Section */
 #hero {
-    background-image: url('/assets/images/background.jpg');
+    background-image: url('/assets/images/background.png');
     background-size: cover;
     background-position: center;
-    height: 300px;
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -353,7 +353,7 @@ form textarea.form-field {
 #contact-img {
     position: absolute;
     left: 1000px;
-    top: 2900px;
+    top: 3200px;
     opacity: 1;
     z-index: 1;
 }
