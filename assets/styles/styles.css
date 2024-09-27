@@ -40,7 +40,12 @@ header {
 
 .logo {
     max-width: 200px;
-    padding-top: 0 ;
+    padding-top: 15px ;
+    transition: all .4s ease-in-out;
+}
+.logo:hover{
+    transform: scale(1.05);
+    text-decoration: none;
 }
 
 nav {
@@ -57,29 +62,8 @@ nav a {
     padding: 35px 0;
 }
 
-nav:not(img) a::after {
-    content: "";
-    display: block;
-    width: 0;
-    height: 3px;
-    margin-top: 0.5rem;
-    transition: all 0.3s;
-    background: #12c2e9;
-    background: -webkit-linear-gradient(
-        to right,
-        #f64f59,
-        #c471ed,
-        #12c2e9
-    );
-    background: linear-gradient(
-        to right,
-        #f64f59,
-        #c471ed,
-        #12c2e9
-    );
-}
 
-nav:not(img) a:hover::after {
+nav a:hover::after {
     width: 100px;
 }
 
@@ -155,7 +139,7 @@ nav:not(img) a:hover::after {
     padding-right: 0;
 }
 
-#header {
+#selected-p {
     max-width: 600px;
 }
 
@@ -465,3 +449,5 @@ form textarea.form-field {
 element.style {
     display: none;
 }
+
+

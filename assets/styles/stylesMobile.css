@@ -1,0 +1,183 @@
+/* Mobile-specific styling */
+@media only screen and (max-width: 480px) {
+    
+    /* Global Styling */
+    body {
+        max-width: 100%; /* Ensure it fits any smaller screen size */
+        font-size: 14px;
+        background-color: rgba(205, 180, 219, 0.9);
+        display: flex;
+        justify-content: center; /* Center everything horizontally */
+        align-items: center; /* Center everything vertically */
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+
+    #container {
+        max-width: 100%; /* Make sure the container fits any screen size */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center the contents within the container */
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    /* Sticky Header */
+    header {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo {
+        max-width: 100px;
+        padding-top: 10px;
+    }
+
+    nav a {
+        margin: 10px 0;
+        font-size: 1.2rem;
+        padding: 10px 0;
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
+
+    /* Hero Section */
+    #hero {
+        width: 100%;
+        background-position: top;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    .hero-text p {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    /* About Section */
+    #about-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px;
+        width: 100%;
+    }
+
+    #about-section img {
+        max-width: 100%;
+    }
+
+    #about-section p {
+        max-width: 300px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    /* Project Section */
+    #project-section {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    #selected-p{
+        max-width: 200px;
+    }
+
+    .carousel-slides img {
+        max-width: 480px;
+        height: auto;
+    }
+
+    /* Download & Resume Buttons */
+    #myOuterDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    #myDownloadDiv, #myResumeDiv {
+        width: 90%;
+        margin: 10px 0;
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* Footer */
+    footer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    #social-media {
+        width: 100px;
+        margin-top: 10px;
+    }
+
+    /* Contact Section */
+    #contact-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        width: 100%;
+    }
+
+    #contact-img img {
+        max-width: 100%;
+    }
+
+    /* Form */
+    .form-container {
+        width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-field {
+        width: 100%;
+        height: 40px;
+        padding-left: 10px;
+        margin: 10px 0;
+    }
+
+    .send-btn {
+        width: 100px;
+        padding: 10px;
+    }
+
+    /* Tooltip */
+    .tooltip .tooltiptext {
+        width: 100px;
+    }
+
+    /* Photo Gallery */
+    .photo-gallery {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-gap: 10px;
+    }
+}
