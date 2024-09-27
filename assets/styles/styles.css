@@ -33,7 +33,7 @@ header {
     position: sticky;
     top: 0;
     background-color: #A3A8AC;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.342);
     z-index: 1000;
     padding: 10px 0;
 }
@@ -56,7 +56,7 @@ nav a {
     font-size: 1.6rem;
 }
 
-nav a::after {
+nav:not(img) a::after {
     content: "";
     display: block;
     width: 0;
@@ -78,7 +78,7 @@ nav a::after {
     );
 }
 
-nav a:hover::after {
+nav:not(img) a:hover::after {
     width: 100px;
 }
 
@@ -462,17 +462,4 @@ form textarea.form-field {
 
 element.style {
     display: none;
-}
-
-/* Mobile Styles */
-@media only screen and (max-width: 768px) {
-    /* Adjusting the sticky header for smaller screens */
-    html {
-        width: 100%;
-        width: fit-content;
-    }
-    header {
-        padding: 10px 0;
-        background-color: #A3A8AC;
-    }
 }
