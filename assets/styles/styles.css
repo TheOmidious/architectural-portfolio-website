@@ -29,7 +29,7 @@ h2 {
 /* Sticky Header */
 header {
     width: 100%;
-    max-height: 135px;
+    max-height: 100px;
     position: sticky;
     top: 0;
     background-color: #A3A8AC;
@@ -38,14 +38,14 @@ header {
     padding: 10px 0;
 }
 
-#logo {
+.logo {
     max-width: 200px;
+    padding-top: 0 ;
 }
 
 nav {
     display: flex;
     justify-content: center;
-    padding: 15px 0;
 }
 
 nav a {
@@ -54,6 +54,7 @@ nav a {
     text-decoration: none;
     font-weight: 900;
     font-size: 1.6rem;
+    padding: 35px 0;
 }
 
 nav:not(img) a::after {
@@ -116,7 +117,7 @@ nav:not(img) a:hover::after {
 /* Content Sections */
 .content-section {
     text-align: center;
-    padding: 65px 0px 20px; /* Increased top padding to avoid header overlap */
+    padding: 200px 0px 20px; /* Increased top padding to avoid header overlap */
 }
 
 /*About Section */
@@ -351,6 +352,7 @@ form textarea.form-field {
     gap: 20px;
     align-items: center;
     padding-bottom: 60px;
+    padding-top: 60px;
 }
 
 #contact-img img {
@@ -360,7 +362,7 @@ form textarea.form-field {
 #contact-img {
     position: absolute;
     left: 1000px;
-    top: 3600px;
+    top: 4200px;
     opacity: 1;
     z-index: 1;
 }
