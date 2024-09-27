@@ -43,6 +43,7 @@ header {
     padding-top: 15px ;
     transition: all .4s ease-in-out;
 }
+
 .logo:hover{
     transform: scale(1.05);
     text-decoration: none;
@@ -62,9 +63,9 @@ nav a {
     padding: 35px 0;
 }
 
+nav a:hover {
+    text-decoration: underline;
 
-nav a:hover::after {
-    width: 100px;
 }
 
 /* Hero Section */
@@ -101,13 +102,13 @@ nav a:hover::after {
 /* Content Sections */
 .content-section {
     text-align: center;
-    padding: 200px 0px 20px; /* Increased top padding to avoid header overlap */
+    padding: 220px 0px 20px; /* Increased top padding to avoid header overlap */
 }
 
 /*About Section */
 #about-section {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
@@ -116,12 +117,15 @@ nav a:hover::after {
 #about-section p{
     max-width: 500px;
     font-weight: 900;
-
+    font-size: larger;
+    text-align: left;
+    border: 3px solid #9b6f6fd0;
+    border-radius: 50px;
+    padding: 50px;
 }
 
 #about-section img {
     max-width: 300px;
-
 }
 
 #photos-section img {
@@ -189,7 +193,6 @@ nav a:hover::after {
 }
 
 button {
-
     display: inline-block;
     outline: 0;
     border: none;
@@ -288,7 +291,6 @@ footer {
 }
 
 .form-field {
-
     border: 3px solid #000;
     border-radius: 5px;
     height: 50px;
@@ -330,13 +332,14 @@ form textarea.form-field {
 }
 
 #contact-section {
+    height: 700px;
     display: flex;
     width: auto;
     justify-content: space-evenly;
     gap: 20px;
     align-items: center;
     padding-bottom: 60px;
-    padding-top: 60px;
+    padding-top: 20px;
 }
 
 #contact-img img {
@@ -346,7 +349,7 @@ form textarea.form-field {
 #contact-img {
     position: absolute;
     left: 1000px;
-    top: 4200px;
+    top: 4700px;
     opacity: 1;
     z-index: 1;
 }
