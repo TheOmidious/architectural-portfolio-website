@@ -69,8 +69,9 @@
         padding: 10px 20px; /* Padding */
         border: none; /* No border */
         cursor: pointer; /* Pointer on hover */
-        border-radius: 5px; /* Rounded corners */
+        border-radius: 20px; /* Rounded corners */
         margin-left: 20px; /* Space between logo and dropdown button */
+        margin-top: 50px;
     }
 
     .dropbtn:hover {
@@ -87,7 +88,6 @@
         z-index: 2000; /* Ensure it's above other content */
         border-radius: 5px; /* Rounded corners */
     }
-    
 
     /* Dropdown Links */
     .dropdown-content a {
