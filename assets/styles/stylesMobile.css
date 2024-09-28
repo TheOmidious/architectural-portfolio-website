@@ -31,27 +31,26 @@
     header {
         width: 100%;
         max-height: 100px;
-        position: sticky;
-        top: 0;
-        background-color: #A3A8AC;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.342);
-        z-index: 1000;
-        padding: 10px 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        position: sticky; /* Ensure the header is sticky */
+        top: 0; /* Stick to the top */
+        background-color: #A3A8AC; /* Background color */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+        z-index: 1000; /* Make sure it’s above other content */
+        padding: 10px 20px; /* Padding for spacing */
+        display: flex; /* Flexbox for layout */
+        align-items: center; /* Center items vertically */
+        justify-content: space-between; /* Space out items */
+        transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
     }
 
     /* Logo Styling */
     .logo {
-        max-width: 200px;
-        padding-top: 15px;
-        transition: all .4s ease-in-out;
+        max-width: 100px; /* Set max width */
+        transition: transform 0.4s ease-in-out; /* Smooth scaling effect */
     }
 
     .logo:hover {
-        transform: scale(1.05);
-        text-decoration: none;
+        transform: scale(1.05); /* Slightly scale up on hover */
     }
 
     /* Dropdown Menu */
@@ -60,51 +59,55 @@
         display: inline-block;
     }
 
+    /* Dropdown Button Styling */
     .dropbtn {
-        background-color: #A3A8AC;
-        color: #333;
-        font-weight: 900;
-        font-size: 1.6rem;
-        padding: 15px 30px;
-        border: none;
-        cursor: pointer;
-        border-radius: 50px;
+        display: block;
+        background-color: #A3A8AC; /* Consistent with header */
+        color: #333; /* Button text color */
+        font-weight: 900; /* Bold text */
+        font-size: 1.6rem; /* Font size */
+        padding: 10px 20px; /* Padding */
+        border: none; /* No border */
+        cursor: pointer; /* Pointer on hover */
+        border-radius: 5px; /* Rounded corners */
         margin-left: 20px; /* Space between logo and dropdown button */
     }
 
     .dropbtn:hover {
-        background-color: #666;
+        background-color: #666; /* Change on hover */
     }
 
-    /* Dropdown content */
+    /* Dropdown Content */
     .dropdown-content {
-        display: none;
-        position: absolute;
-        right: 0; /* Align dropdown content to the right */
-        background-color: #f9f9f9;
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        border-radius: 10px;
+        display: none; /* Initially hidden */
+        position: absolute; /* Positioned below dropdown */
+        right: 0; /* Align to the right */
+        background-color: #f9f9f9; /* Background color */
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Shadow */
+        z-index: 2000; /* Ensure it's above other content */
+        border-radius: 5px; /* Rounded corners */
     }
+    
 
-    /* Dropdown links */
+    /* Dropdown Links */
     .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        font-weight: 900;
-        font-size: 1.4rem;
+        color: black; /* Link color */
+        padding: 12px 16px; /* Padding for links */
+        text-decoration: none; /* No underline */
+        display: block; /* Block elements */
+        font-weight: 900; /* Bold text */
+        font-size: 1.4rem; /* Font size */
     }
 
     .dropdown-content a:hover {
-        background-color: #ddd;
+        background-color: #ddd; /* Change on hover */
     }
 
-    /* Show the dropdown when hovering */
+    /* Show the dropdown when hovering over the dropdown */
     .dropdown:hover .dropdown-content {
-        display: block;
+        display: block; /* Show on hover */
     }
+
 
     /* Hero Section */
     #hero {

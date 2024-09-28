@@ -185,3 +185,28 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Email address element not found.');
     }
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(dropdown => {
+        const dropbtn = dropdown.querySelector('.dropbtn');
+        const dropdownContent = dropdown.querySelector('.dropdown-content');
+
+        // Toggle dropdown on button click
+        dropbtn.addEventListener('click', function (event) {
+            event.stopPropagation(); // Prevent click event from bubbling up
+            const isOpen = dropdownContent.style.display === 'block';
+            dropdownContent.style.display = isOpen ? 'none' : 'block';
+        });
+    });
+
+    // Close the dropdown if the user clicks outside of it
+    window.addEventListener('click', function () {
+        dropdowns.forEach(dropdown => {
+            const dropdownContent = dropdown.querySelector('.dropdown-content');
+            dropdownContent.style.display = 'none'; // Close dropdown
+        });
+    });
+});

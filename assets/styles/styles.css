@@ -68,8 +68,15 @@ nav a:hover {
 
 }
 
+.dropdown {
+    max-height: 30px;
+}
+
+.dropbtn {
+}
 /* Hero Section */
 #hero {
+    width: 100%;
     background-image: url('/assets/images/architectural_background.jpg');
     background-size: cover;
     background-position: center;
