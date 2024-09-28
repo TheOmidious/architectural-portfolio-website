@@ -8,7 +8,7 @@
     
     <!-- Link to external CSS file -->
     <link rel="stylesheet" href="assets/styles/styles.css">
-    <!-- <link rel="stylesheet" href="assets/styles/stylesMobile.css"> -->
+    <link rel="stylesheet" href="assets/styles/stylesMobile.css">
     <!-- Google Font: Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
@@ -17,11 +17,24 @@
     <!-- Sticky Navigation Bar -->
     <header id="sticky-header">
         <nav>
-            <a href="#about-section">About</a>
-            <a href="#projects-section">Projects</a>
-            <a class="logo" href="#hero"><img class="logo" src="assets/images/logo2.png" alt="Logo"></a>
-            <a href="#photos-section">Photos</a>
-            <a href="#contact-section">Contact</a>
+            <div class="dropdown">
+                <div class="dropdown-content">
+                    <a href="#about-section">About</a>
+                    <a href="#projects-section">Projects</a>
+                </div>
+            </div>
+            <a class="logo" href="#hero">
+                <img class="logo" src="assets/images/logo2.png" alt="Logo">
+            </a>
+    
+            <!-- Dropdown menu for links -->
+            <div class="dropdown">
+                <div class="dropdown-content">
+                    <a href="#photos-section">Photos</a>
+                    <a href="#contact-section">Contact</a>
+                </div>
+            </div>
+            <button class="dropbtn">Dropdown</button>
         </nav>
     </header>
 

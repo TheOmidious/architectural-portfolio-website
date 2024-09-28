@@ -46,3 +46,4 @@ function runInterval(buttonKey) {
         }, 1000);
     }
 }
+
